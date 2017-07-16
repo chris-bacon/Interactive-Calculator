@@ -59,7 +59,7 @@ lexicalAnalyzer (x:xs) cbuffer nbuffer
 main :: IO ()
 main = forever $ do
     putStr "> "
-    hFlush stdout
+    hFlush stdout -- This is needed because putStr buffers so user input occurs before putStr is displayed
     equation <- getLine
     let brokenEquation = splitOn "" equation
     print $ eval $ lexicalAnalyzer brokenEquation [] []
