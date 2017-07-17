@@ -1,4 +1,4 @@
-# calculatorrepl
+# Interactive Calculator (Calculator REPL)
 
 This is an interactive calculator.
 
