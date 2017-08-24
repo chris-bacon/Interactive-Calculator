@@ -13,4 +13,4 @@ We define an equation recursively to be either (1) a single value, or (2) two no
 ## TODO
 
 1. Extend functionality to include floating point numbers
-2. Make lexical analyser handle differing levels of whitespace
+~~2. Make lexical analyser handle differing levels of whitespace~~
