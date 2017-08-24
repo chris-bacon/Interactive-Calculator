@@ -30,6 +30,7 @@ eval (Lit x) = x
 
 -- Lexical Analysis
 
+toInt :: [Char] -> Int
 toInt x = read x :: Int
 
 isInt :: String -> Bool
@@ -39,17 +40,17 @@ lexicalAnalyzer :: [[Char]] -> [Char] -> [Char] -> Equation
 lexicalAnalyzer [] cbuffer nbuffer = (Lit (toInt nbuffer))
 lexicalAnalyzer (x:xs) cbuffer nbuffer
     -- Descend tree
-    | (isInt nbuffer) && (cbuffer == "+") = Add (Lit (toInt nbuffer)) (lexicalAnalyzer xs [] [])
-    | (isInt nbuffer) && (cbuffer == "-") = Sub (Lit (toInt nbuffer)) (lexicalAnalyzer xs [] [])
-    | (isInt nbuffer) && (cbuffer == "/") = Div (Lit (toInt nbuffer)) (lexicalAnalyzer xs [] [])
-    | (isInt nbuffer) && (cbuffer == "*") = Mul (Lit (toInt nbuffer)) (lexicalAnalyzer xs [] [])
+    | (isInt nbuffer) && (cbuffer == "+") = Add (Lit (toInt nbuffer)) (lexicalAnalyzer (x:xs) [] [])
+    | (isInt nbuffer) && (cbuffer == "-") = Sub (Lit (toInt nbuffer)) (lexicalAnalyzer (x:xs) [] [])
+    | (isInt nbuffer) && (cbuffer == "/") = Div (Lit (toInt nbuffer)) (lexicalAnalyzer (x:xs) [] [])
+    | (isInt nbuffer) && (cbuffer == "*") = Mul (Lit (toInt nbuffer)) (lexicalAnalyzer (x:xs) [] [])
     -- Operators
     | x == "+" = lexicalAnalyzer xs "+" nbuffer
     | x == "-" = lexicalAnalyzer xs "-" nbuffer
     | x == "/" = lexicalAnalyzer xs "/" nbuffer
     | x == "*" = lexicalAnalyzer xs "*" nbuffer
     -- Values
-    | (isInt x == False) && (isInt nbuffer) = lexicalAnalyzer xs cbuffer nbuffer -- End of number
+    | (isInt x) && (isInt nbuffer) = lexicalAnalyzer xs cbuffer nbuffer -- End of number
     | (isInt x) = lexicalAnalyzer xs cbuffer (nbuffer ++ x)
     -- Misc
     | x == "" = lexicalAnalyzer xs cbuffer nbuffer -- Ignore
