@@ -4,7 +4,7 @@ This is an interactive calculator.
 
 Run `./calculatorrepl` to start it.
 
-At the moment it only really handles integers (so don't try dividing by a float). Also, the calculator is particular with its whitespace at the moment. So please add a space between numbers and operators - i.e. `2 - 2 + 10` is good but `2 -2+10` is not.
+At the moment it only really handles integers (so don't try dividing by a float).
 
 ## Description of Program
 
@@ -13,4 +13,4 @@ We define an equation recursively to be either (1) a single value, or (2) two no
 ## TODO
 
 1. Extend functionality to include floating point numbers
-~~2. Make lexical analyser handle differing levels of whitespace~~
+2. ~~Make lexical analyser handle differing levels of whitespace~~
