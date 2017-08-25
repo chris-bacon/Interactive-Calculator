@@ -1,6 +1,6 @@
 # Interactive Calculator (Calculator REPL)
 
-This is an interactive calculator.
+This is an interactive calculator. At the moment, the compiled binaries are only compatible with Linux.
 
 Run `./calculatorrepl` to start it.
 
