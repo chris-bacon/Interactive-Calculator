@@ -23,7 +23,7 @@ data Equation
 
 eval :: Equation -> Int
 eval (Mul x y) = eval x * eval y
-eval (Div x y) = eval x `div` eval y
+eval (Div x y) = safeDiv (eval x) (eval y)
 eval (Add x y) = eval x + eval y
 eval (Sub x y) = eval x - eval y
 eval (Lit x) = x
@@ -56,6 +56,10 @@ lexicalAnalyzer (x:xs) cbuffer nbuffer
     | x == "" = lexicalAnalyzer xs cbuffer nbuffer -- Ignore
     | x == " " = lexicalAnalyzer xs cbuffer nbuffer -- Ignore
     | otherwise = error("Syntax error: " ++ x)
+
+safeDiv :: (Integral a, Eq a) => a -> a -> a
+safeDiv _ 0 = 0
+safeDiv n m = n `div` m
 
 main :: IO ()
 main = forever $ do
