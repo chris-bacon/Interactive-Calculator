@@ -2,7 +2,12 @@
 
 This is an interactive calculator. At the moment, the compiled binaries are only compatible with Linux.
 
-Run `./calculatorrepl` to start it.
+Run 
+
+```
+stack build
+stack exec calculatorrepl
+```
 
 At the moment it only really handles integers (so don't try dividing by a float).
 
