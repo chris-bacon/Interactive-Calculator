@@ -8,7 +8,7 @@ To build and execute, run
 
 ```
 stack build
-stack exec calculatorrepl
+stack exec calculator
 ```
 
 To test, run
