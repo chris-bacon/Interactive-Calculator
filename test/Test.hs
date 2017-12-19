@@ -1,6 +1,7 @@
 import Test.QuickCheck
 import Test.Hspec
 import Lib
+import Types 
 
 main :: IO ()
 main = do
